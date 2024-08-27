@@ -5,7 +5,7 @@ type JointComponentProps = {
   visible: boolean;
 };
 
-export default function JointComponent(props: JointComponentProps) {
+export default function PainComponent(props: JointComponentProps) {
   const { joints, label, visible, hideLabel } = props;
 
   return (

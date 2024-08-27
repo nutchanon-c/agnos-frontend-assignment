@@ -8,7 +8,7 @@ import OthersHighlight from "../../assets/images/hand/others-highlight.png";
 import PipActive from "../../assets/images/hand/pip-active.png";
 import PipHighlight from "../../assets/images/hand/pip-highlight.png";
 import { Boundary } from "../../types/boundaries";
-import JointComponent from "./JointComponent";
+import PainComponent from "../PainComponent";
 import { isInBoundary } from "../../utils/boundary";
 
 const pipBoundaries: Boundary[] = [
@@ -153,37 +153,38 @@ export default function HandForm(props: HandFormProps) {
       setPip(false);
       setMcp(false);
     }
-
-    console.log(x, y);
   };
 
   const shouldHideLabel = dip && pip && mcp;
   return (
-    <div className="relative" onClick={handleClick} ref={imageRef}>
-      <img src={BaseHandImage} />
+    <div className="flex flex-col items-center justify-center">
+      <p className="text-3xl font-semibold">จุดไหนที่คุณปวดนิ้วมากที่สุด</p>
+      <div className="relative" onClick={handleClick} ref={imageRef}>
+        <img src={BaseHandImage} />
 
-      <JointComponent
-        label={<img className="absolute top-0" src={DipActive} />}
-        joints={<img className="absolute top-0" src={DipHighlight} />}
-        visible={!button && dip}
-        hideLabel={shouldHideLabel}
-      />
+        <PainComponent
+          label={<img className="absolute top-0" src={DipActive} />}
+          joints={<img className="absolute top-0" src={DipHighlight} />}
+          visible={!button && dip}
+          hideLabel={shouldHideLabel}
+        />
 
-      <JointComponent
-        label={<img className="absolute top-0" src={PipActive} />}
-        joints={<img className="absolute top-0" src={PipHighlight} />}
-        visible={!button && pip}
-        hideLabel={shouldHideLabel}
-      />
+        <PainComponent
+          label={<img className="absolute top-0" src={PipActive} />}
+          joints={<img className="absolute top-0" src={PipHighlight} />}
+          visible={!button && pip}
+          hideLabel={shouldHideLabel}
+        />
 
-      <JointComponent
-        label={<img className="absolute top-0" src={McpActive} />}
-        joints={<img className="absolute top-0" src={McpHighlight} />}
-        visible={!button && mcp}
-        hideLabel={shouldHideLabel}
-      />
+        <PainComponent
+          label={<img className="absolute top-0" src={McpActive} />}
+          joints={<img className="absolute top-0" src={McpHighlight} />}
+          visible={!button && mcp}
+          hideLabel={shouldHideLabel}
+        />
 
-      {button && <img className="absolute top-0" src={OthersHighlight} />}
+        {button && <img className="absolute top-0" src={OthersHighlight} />}
+      </div>
     </div>
   );
 }
