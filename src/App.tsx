@@ -10,8 +10,8 @@ function App() {
   };
 
   return (
-    <div className="p-2 flex w-full h-screen gap-4 flex-col font-noto">
-      <div className="rounded-xl shadow-lg shadow-gray-500 shadown- p-8 flex flex-col items-center justify-evenly h-full">
+    <div className="p-2 flex lg:h-full sm:h-lvh w-auto gap-4 flex-col font-noto justify-center">
+      <div className="rounded-xl shadow-lg shadow-gray-500 p-8 flex flex-col items-center justify-center h-max">
         {page === 0 && <HandForm selectCallback={selectCallback} />}
         {page === 1 && <AbsForm />}
       </div>
